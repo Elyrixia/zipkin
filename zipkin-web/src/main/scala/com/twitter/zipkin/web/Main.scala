@@ -54,7 +54,7 @@ trait ZipkinWebFactory { self: App =>
   val webResourcesRoot = flag("zipkin.web.resourcesRoot", "zipkin-web/src/main/resources", "on-disk location of resources")
   val webPinTtl = flag("zipkin.web.pinTtl", 30.days, "Length of time pinned traces should exist")
 
-  val queryDest = flag("zipkin.web.query.dest", "127.0.0.1:9411", "Location of the query server")
+  val queryDest = flag("zipkin.web.query.dest", "localdocker:9411", "Location of the query server")
   def newQueryClient(): ZipkinQuery.FutureIface =
     Thrift.newIface[ZipkinQuery.FutureIface]("ZipkinQuery=" + queryDest())
 
