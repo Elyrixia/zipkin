@@ -20,8 +20,8 @@ import com.twitter.zipkin.storage.Store
 
 
 val redisBuilder = Store.Builder(
-    redis.StorageBuilder("0.0.0.0", 6379),
-    redis.IndexBuilder("0.0.0.0", 6379)
+    redis.StorageBuilder("localdocker", 6379),
+    redis.IndexBuilder("localdocker", 6379)
 )
 
 CollectorServiceBuilder(Scribe.Interface(categories = Set("zipkin")))
